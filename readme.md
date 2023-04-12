@@ -1,4 +1,4 @@
-Move ZooKeeper and Kafka logs to `/var/log/APP_NAME`
+### Server Setup:
 
 ```
 vi config/server.properties
@@ -6,12 +6,22 @@ vi config/server.properties
 
 ```
 advertised.listeners=PLAINTEXT://PUBLIC_IP:9092
+log.dirs=/var/log/kafka
 ```
+
+```
+vi config/zookeeper.properties
+```
+
+```
+dataDir=/var/log/zookeeper
+```
+
+### Create daemons:
 
 ```
 sudo vi /etc/systemd/system/zookeeper.service
 ```
-
 
 ```
 [Unit]
