@@ -1,5 +1,7 @@
 ### Server Setup:
 
+**Update Kafka**
+
 ```
 vi config/server.properties
 ```
@@ -8,6 +10,8 @@ vi config/server.properties
 advertised.listeners=PLAINTEXT://PUBLIC_IP:9092
 log.dirs=/var/log/kafka
 ```
+
+**Update ZooKeeper**
 
 ```
 vi config/zookeeper.properties
@@ -18,6 +22,8 @@ dataDir=/var/log/zookeeper
 ```
 
 ### Create daemons:
+
+**ZooKeeper**
 
 ```
 sudo vi /etc/systemd/system/zookeeper.service
@@ -39,6 +45,8 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
+
+**Kafka**
 
 ```
 sudo vi /etc/systemd/system/kafka.service
